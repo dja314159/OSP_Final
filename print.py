@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import timeit
 import math
 from nltk import word_tokenize
 
@@ -51,6 +52,7 @@ def compute_idf():
 
 if __name__ == '__main__':
 
+	start = timeit.default_timer()
 	docs = []
 	
 	f = open("data.txt","r")
@@ -72,3 +74,8 @@ if __name__ == '__main__':
 	for word,tfval in tf_d.items():
 		print(word, tfval*idf_d[word])
 	print(" ")
+
+	end = timeit.default_timer()
+	end-=start
+	
+	print("time =",end)
