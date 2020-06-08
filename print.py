@@ -1,13 +1,16 @@
 #!/usr/bin/python3
 
-import timeit
 import math
+import numpy
 from nltk import word_tokenize
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
 
 f = open("data.txt","r")
 
 word_d = {}
 sent_list = []
+
 def process_new_sentence(s):
 	sent_list.append(s)
 	tokenized = word_tokenize(s)
@@ -27,15 +30,19 @@ def compute_tf(s):
 			wordcount_d[tok]=0
 		wordcount_d[tok] += 1
 		bow.add(tok)
+
 	tf_d = {}
 	for k,v in wordcount_d.items():
 		tf[k] = v/(float(len(bow)))
+
 	return tf_d
 
 
 def compute_idf():
 	Dval = len(sent_list)
+	#build set of words
 	bow = set()
+
 	for i in range(0,len(sent_list)):
 		tokenized = word_tokenize(sent_list[i])
 		for tok in tokenized:
@@ -52,7 +59,6 @@ def compute_idf():
 
 if __name__ == '__main__':
 
-	start = timeit.default_timer()
 	docs = []
 	
 	f = open("data.txt","r")
@@ -71,11 +77,13 @@ if __name__ == '__main__':
 	for i in range(0,len(sent_list)):
 		tf_d = compute_tf(sent_list[i])
 
-	for word,tfval in tf_d.items():
-		print(word, tfval*idf_d[word])
-	print(" ")
-
-	end = timeit.default_timer()
-	end-=start
+		for word,tfval in tf_d.items():
+			print(word, tfval*idf_d[word])
+		print(" ")
 	
-	print("time =",end)
+		end = timeit.default_timer()
+		end-=start
+	
+		print("time =",end)
+	
+
