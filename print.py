@@ -29,7 +29,7 @@ def compute_tf(s):
 		bow.add(tok)
 	tf_d = {}
 	for k,v in wordcount_d.items():
-		tf[k] = v/(float(len(bow)))
+		tf_d[k] = v/(float(len(bow)))
 	return tf_d
 
 
@@ -42,11 +42,11 @@ def compute_idf():
 			bow.add(tok)
 	idf_d = {}
 	for t in bow:
-		cnt = 0
+		cnt = 1
 		for s in sent_list:
 			if t in word_tokenize(s):
 				cnt += 1
-			idf_d[t]=log((float(len(bow)))/cnt)
+			idf_d[t]=math.log((float(len(bow)))/cnt)
 	return idf_d
 
 
@@ -71,9 +71,9 @@ if __name__ == '__main__':
 	for i in range(0,len(sent_list)):
 		tf_d = compute_tf(sent_list[i])
 
-	for word,tfval in tf_d.items():
-		print(word, tfval*idf_d[word])
-	print(" ")
+		for word,tfval in tf_d.items():
+			print(word, tfval*idf_d[word])
+		print(" ")
 
 	end = timeit.default_timer()
 	end-=start
