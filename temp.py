@@ -17,5 +17,4 @@ str = soup.select_one('div#bodyColumn')
 
 
 with open('data.txt','w+') as f:
-	for line in str:
-		f.write(str.text.strip())
+	f.write(str.text.strip())
