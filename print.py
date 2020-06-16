@@ -100,7 +100,7 @@ if __name__ == '__main__':
 	arr =[]
 	arr = sorted(dic_print.items(),key=lambda x: x[1], reverse=True)
 	
-	count = 1	
+	count = 0
 	for x,y in arr:
 		if(count==10):break
 		print('%-10s %.4f'%(x,y))
