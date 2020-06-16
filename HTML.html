@@ -5,28 +5,116 @@
 	<head>
 		<title>OSP Final Project team13</title>
 	</head>
-    
-    
+
+
+    <style>
+        table {
+            width: 100%;
+            border-top: 1px solid #444444;
+            border-collapse: collapse;
+        }
+        th, td {
+            border-bottom: 1px solid #444444;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #EDC6C6;
+        }
+        td {
+            background-color: #FFEAEA;
+        }
+        #btn1 {
+            border-radius: 10px;
+            border: 3px solid #DBB4B4;
+            background-color: white;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1), 0 6px 20px 0 rgba(0,0,0,0.1);
+        }
+        #btn2 {
+            border-radius: 10px;
+            border: 3px solid #DBB4B4;
+            background-color: lemonchiffon;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1), 0 6px 20px 0 rgba(0,0,0,0.1);
+        }
+        #btn1:hover{color:white; background-color: black;}
+        #btn2:hover{color:white; background-color: black;}
+       
+    </style>
+
+
 	<body>
 		<h1>WebPage Analysis Service</h1>
-        
-    
+
+
         <form name="Single URL" action="값을 보낼 주소" method="GET">
         	① Enter a URL for Crawling <input type='URL' id='userURL' name='userURL'>
             <input type='submit' value='Enter'>
-    	</form><br>
-        
+        </form><br>
+
         <div class="filebox"> <label for="textfile">② Upload a File including some URL</label>
-        <input type="file" id="textfile"> </div>
-        
+        <input type="file" id="textfile"> </div><br><br>
+
         <!--
 		<form action="" method="GET" enctype="multipart/form-data" name="">
 		<input type="file" name="FileName">
 		</form>
         -->
- 
 
-        
+
+        <table>
+            <thead>
+              <tr>
+                <th>Word Count</th><th>Processing Time</th><th>Word Analysis</th><th>Similarity Analysis</th>
+              </tr>
+            </thead>
+
+            
+            <tbody>
+              <tr>
+                <td>Lorem</td> <td>Ipsum</td> <td><input type="button" id="btn1" value="Word Analysis" name="WA" ></td> <td><input type="button" id="btn2" value="Similarity Analysis" name="SA"></td>
+              </tr>
+              <tr>
+                <td>Lorem</td> <td>Ipsum</td> <td>Dolor</td> <td>Sit</td>
+              </tr>
+              <tr>
+                <td>Lorem</td> <td>Ipsum</td> <td>Dolor</td> <td>Sit</td>
+              </tr>
+              <tr>
+                <td>Lorem</td> <td>Ipsum</td> <td>Dolor</td> <td>Sit</td>
+              </tr>
+              <tr>
+                <td>Lorem</td> <td>Ipsum</td> <td>Dolor</td> <td>Sit</td>
+              </tr>
+              <tr>
+                <td>Lorem</td> <td>Ipsum</td> <td>Dolor</td> <td>Sit</td>
+              </tr>
+            </tbody>
+
+            <!--
+            <tbody>
+                <tr>
+                  <td>Lorem</td> <td>Ipsum</td> <td><input type="button" id="btn1" value="Word Analysis" name="WA" ></td> <td><input type="button" id="btn2" value="Similarity Analysis" name="SA"></td>
+                </tr>
+
+                <script language="JavaScript">
+                    for (i=0; i<10; i++)
+                    {
+                        document.write("<tr");
+
+                        document.write("<td>Lorem</td> <td>Ipsum</td> <td><input type="button" id="btn1" value="Word Analysis" name="WA" ></td> <td><input type="button" id="btn2" value="Similarity Analysis" name="SA"></td>");
+                        
+                        document.write("</tr");
+                    }
+                </script>
+
+            </tbody> -->
+
+
+          </table>
+
+
 
 	</body>
 
