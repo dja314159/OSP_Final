@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 
 <html>
@@ -87,12 +88,13 @@
 								<!-- Text -->
 									<h2>WebPage Analysis Service</h2>
         							<form name="Single URL"
-										action={{url_for('printURL')}}
+										action=""
 										method="GET">
 										Enter a URL for Crawling
 										<input type='URL' id='userURL' name='userURL'>
             							<input type='submit' value='Enter'>
-									</form>
+									</form></br>
+								<p>Time required : {{time}}</p>
 									
 									
 								<!-- Table -->
@@ -100,61 +102,74 @@
 										<table>
 											<thead>
 												<tr>
-													<th>Word Count</th>
-													<th>Processing Time</th>
+													<th>Word</th>
+													<th>TF-IDF value</th>
 													<th>Word Analysis</th>
 													<th>Similarity Analysis</th>
 												</tr>
 											</thead>
 											<tbody>
 												<tr>
-													<td>Alpha</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>{{word1}}</td>
+													<td>{{value1}}</td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>Beta</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>{{word2}}</td>
+													<td>{{value2}}</td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>Gamma</td>
-													<td>Morbi faucibus arcu accumsan lorem.</td>
+													<td>{{word3}}</td>
+													<td>{{value3}}</td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>Delta</td>
-													<td>Vitae integer tempus condimentum.</td>
+													<td>{{word4}}</td>
+													<td>{{value4}}</td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>Epsilon</td>
-													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>{{word5}}</td>
+													<td>{{value5}}</td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>Zeta</td>
-													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>{{word6}}</td>
+													<td>{{value6}}</td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>Eta</td>
-													<td>Morbi faucibus arcu accumsan lorem.</td>
+													<td>{{word7}}</td>
+													<td>{{value7}}</td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>Theta</td>
-													<td>Vitae integer tempus condimentum.</td>
+													<td>{{word8}}</td>
+													<td>{{value8}}</td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
+												<tr>
+													<td>{{word9}}</td>
+													<td>{{value9}}</td>
+													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
+													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
+												</tr>
+												<tr>
+													<td>{{word10}}</td>
+													<td>{{value10}}</td>
+													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
+													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
+												</tr>
+
 											</tbody>
 										</table>
 									</div>
