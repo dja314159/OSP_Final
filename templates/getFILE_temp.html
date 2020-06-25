@@ -7,20 +7,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link rel="stylesheet" href="{{ url_for ('static', filename = 'css/main.css') }}" />
-<script type="text/javascript">
+		<link rel="stylesheet" href="{{ url_for ('static', filename = 'css/main.css') }}"/>
+ <script type="text/javascript">
     
-     function fileread()
-	{
+     function fileread(){
         var file = document.getElementById("file").files[0];
         var reader = new FileReader();
         reader.readAsText(file, "utf-8");
-	var url = document.URL_FILE;
-
- 	reader.onload=function(){
+        reader.onload=function(){
             var view=document.getElementById("content");
             view.textContent = reader.result;
-	    url.URLs.value = reader.result;
         };
         reader.onerror = function(event){
             switch(event.target.error.code){
@@ -38,12 +34,9 @@
             }
        
         };
-	
-	
-
-	
      }
-  </script>	
+  </script>
+
 	</head>
 	<body class="is-preload">
 
@@ -76,29 +69,81 @@
 
 					<!-- Elements -->
 						<div class="row">
-							<div class="col-6 col-12-medium">
 
 								<!-- Text -->
 									<h2>WebPage Analysis Service</h2>
-										<div class="filebox"> 
-										<label for="textfile">
-										Upload a File including some URL
-										</label>
+									<div class="filebox"> <label for="textfile">Upload a File including some URL</label>
 										<input type="file" id="file"><br><br><br>
-									<input type="button" onclick="fileread()" value="파일 분석">
+									 <input type="button" onclick="fileread()" value="파일 분석">
 
-										</div>
-<table id="table"></table>
+									</div>
+									<table id="table"></table>
     <textarea id="content" readonly style="width:600px; height:500px;"></textarea>
-									<form name="URL_FILE" 
-										action={{url_for('printFILE')}} 
-										method="post">
-										<input type='hidden' id = 'URLs'  name='URLs' value="">
-            						<input type= 'submit' value = 'Enter'>
-									
-									</form><br>
-									
-							</div>
+
+
+								<!-- Table -->
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Word Count</th>
+													<th>Processing Time</th>
+													<th>Word Analysis</th>
+													<th>Similarity Analysis</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Alpha</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>10.00</td>
+													<td>10.00</td>
+												</tr>
+												<tr>
+													<td>Beta</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>20.00</td>
+													<td>10.00</td>
+												</tr>
+												<tr>
+													<td>Gamma</td>
+													<td>Morbi faucibus arcu accumsan lorem.</td>
+													<td>30.00</td>
+													<td>10.00</td>
+												</tr>
+												<tr>
+													<td>Delta</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>40.00</td>
+													<td>10.00</td>
+												</tr>
+												<tr>
+													<td>Epsilon</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td>50.00</td>
+													<td>10.00</td>
+												</tr>
+												<tr>
+													<td>Zeta</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td>60.00</td>
+													<td>10.00</td>
+												</tr>
+												<tr>
+													<td>Eta</td>
+													<td>Morbi faucibus arcu accumsan lorem.</td>
+													<td>70.00</td>
+													<td>10.00</td>
+												</tr>
+												<tr>
+													<td>Theta</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td>80.00</td>
+													<td>10.00</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
 							
 						</div>
 					</div>
@@ -137,5 +182,6 @@
 			<script src="{{ url_for ('static', filename = 'js/breakpoints.min.js') }}"></script>
 			<script src="{{ url_for ('static', filename = 'js/util.js') }}"></script>
 			<script src="{{ url_for ('static', filename = 'js/main.js') }}"></script>
+
 	</body>
 </html>

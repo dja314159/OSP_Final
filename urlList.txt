@@ -1,0 +1,10 @@
+http://ambari.apache.org/
+http://bigtop.apache.org/
+http://curator.apache.org/
+http://giraph.apache.org/
+http://hbase.apache.org/
+http://hc.apache.org/
+http://jackrabbit.apache.org/
+http://knox.apache.org/
+http://lens.apache.org/
+http://portals.apache.org/

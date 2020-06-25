@@ -13,6 +13,39 @@
 
 	<script language="javascript">
 		function showPopup() { window.open({{url_for('pop1')}}, "a", "width=400, height=300, left=500, top=200"); }
+		function fileread()
+	{
+        var file = document.getElementById("file").files[0];
+        var reader = new FileReader();
+        reader.readAsText(file, "utf-8");
+	var url = document.URL_FILE;
+
+ 	reader.onload=function(){
+            var view=document.getElementById("content");
+            view.textContent = reader.result;
+	    url.URLs.value = reader.result;
+        };
+        reader.onerror = function(event){
+            switch(event.target.error.code){
+                case error.NOT_FOUND_ERR:
+                    alert("읽을 파일을 찾지 못하였습니다..");break;
+                case error.SECURITY_ERR:
+                    alert("보안상 안전하지 않습니다..");break;
+                case error.ABORT_ERR:
+                    alert("읽기가 중지되었습니다."); break;
+                case error.NOT_READABLE_ERR:
+                    alert("읽기 권한이 없습니다."); break;
+                case error.ENCODING_ERR:
+                    alert("파일 용량이 상한을 초과하였습니다."); break;
+ 
+            }
+       
+        };
+	
+	
+
+	
+     }
 	</script>
 
 	<style>
@@ -73,7 +106,7 @@
 
 		<!-- Heading -->
 			<div id="heading" >
-				<h1>URL 입력</h1>
+				<h1>파일 분석</h1>
 			</div>
 
 		<!-- Main -->
@@ -87,15 +120,25 @@
 
 								<!-- Text -->
 									<h2>WebPage Analysis Service</h2>
-        							<form name="Single URL"
-										action={{url_for('printURL')}}
+        							<form name="URL FILE" 
+										action={{url_for('printFILE')}} 
 										method="post">
-										Enter a URL for Crawling
-										<input type='URL' id='userURL' name='userURL'>
+										<div class="filebox"> 
+										<label for="textfile">
+										Upload a File including some URL
+										</label>
+										<input type="file" id="file"><br><br><br>
+									<input type="button" onclick="fileread()" value="파일 분석">
+
+										</div>
+<table id="table"></table>
+    <textarea id="content" readonly style="width:600px; height:500px;"></textarea>
+										<input type='hidden' name='URLs'>
             							<input type='submit' value='Enter'>
-									</form></br></br>
-								<p>URL : {{url}}</p></br></br>
-								<p>Time required : {{time}}</p>
+									
+									</form><br></br></br>
+								
+								<p>Time required : <!--{{time}}--></p>
 									
 									
 								<!-- Table -->
@@ -112,62 +155,62 @@
 											</thead>
 											<tbody>
 												<tr>
-													<td>{{word1}}</td>
-													<td>{{value1}}</td>
+													<td><!--{{word1}}--></td>
+													<td><!--{{value1}}--></td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>{{word2}}</td>
-													<td>{{value2}}</td>
+													<td><!--{{word1}}--></td>
+													<td><!--{{value1}}--></td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>{{word3}}</td>
-													<td>{{value3}}</td>
+													<td><!--{{word1}}--></td>
+													<td><!--{{value1}}--></td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>{{word4}}</td>
-													<td>{{value4}}</td>
+													<td><!--{{word1}}--></td>
+													<td><!--{{value1}}--></td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>{{word5}}</td>
-													<td>{{value5}}</td>
+													<td><!--{{word1}}--></td>
+													<td><!--{{value1}}--></td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>{{word6}}</td>
-													<td>{{value6}}</td>
+													<td><!--{{word1}}--></td>
+													<td><!--{{value1}}--></td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>{{word7}}</td>
-													<td>{{value7}}</td>
+													<td><!--{{word1}}--></td>
+													<td><!--{{value1}}--></td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>{{word8}}</td>
-													<td>{{value8}}</td>
+													<td><!--{{word1}}--></td>
+													<td><!--{{value1}}--></td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>{{word9}}</td>
-													<td>{{value9}}</td>
+													<td><!--{{word1}}--></td>
+													<td><!--{{value1}}--></td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
 												<tr>
-													<td>{{word10}}</td>
-													<td>{{value10}}</td>
+													<td><!--{{word1}}--></td>
+													<td><!--{{value1}}--></td>
 													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
 													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
 												</tr>
