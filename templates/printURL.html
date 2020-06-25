@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>OSP_Final</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link rel="stylesheet" href="{{ url_for ('static', filename = 'css/main.css') }}" />
+	</head>
+
+	<script language="javascript">
+		function showPopup() { window.open("pop1.html", "a", "width=400, height=300, left=500, top=200"); }
+	</script>
+
+	<style>
+        table {
+            width: 100%;
+            border-top: 1px solid #444444;
+            border-collapse: collapse;
+        }
+        th, td {
+            border-bottom: 1px solid #444444;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #EDC6C6;
+        }
+        td {
+            background-color: #FFEAEA;
+        }
+        #btn1 {
+            border-radius: 10px;
+            border: 3px solid #DBB4B4;
+            background-color: white;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1), 0 6px 20px 0 rgba(0,0,0,0.1);
+			}
+        #btn2 {
+            border-radius: 10px;
+            border: 3px solid #DBB4B4;
+            background-color: lemonchiffon;
+            color: black;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.1), 0 6px 20px 0 rgba(0,0,0,0.1);
+        }
+        #btn1:hover{color:white; background-color: black;}
+        #btn2:hover{color:white; background-color: black;}
+       
+    </style>
+
+
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a class="logo" href={{url_for('home')}}>TF-IDF 기반 유사도 분석 시스템</a>
+				<nav>
+					<a href="#menu">메뉴</a>
+				</nav>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href={{url_for('home')}}>홈으로</a></li>
+					<li><a href={{url_for('getURL')}}>URL 입력</a></li>
+					<li><a href={{url_for('getFILE')}}>파일 업로드</a></li>
+				</ul>
+			</nav>
+
+		<!-- Heading -->
+			<div id="heading" >
+				<h1>URL 입력</h1>
+			</div>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="inner">
+					<div class="content">
+
+					<!-- Elements -->
+						<div class="row">
+							
+
+								<!-- Text -->
+									<h2>WebPage Analysis Service</h2>
+        							<form name="Single URL"
+										action={{url_for('printURL')}}
+										method="GET">
+										Enter a URL for Crawling
+										<input type='URL' id='userURL' name='userURL'>
+            							<input type='submit' value='Enter'>
+									</form>
+									
+									
+								<!-- Table -->
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Word Count</th>
+													<th>Processing Time</th>
+													<th>Word Analysis</th>
+													<th>Similarity Analysis</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Alpha</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
+													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
+												</tr>
+												<tr>
+													<td>Beta</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
+													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
+												</tr>
+												<tr>
+													<td>Gamma</td>
+													<td>Morbi faucibus arcu accumsan lorem.</td>
+													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
+													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
+												</tr>
+												<tr>
+													<td>Delta</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
+													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
+												</tr>
+												<tr>
+													<td>Epsilon</td>
+													<td>Ante turpis integer aliquet porttitor.</td>
+													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
+													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
+												</tr>
+												<tr>
+													<td>Zeta</td>
+													<td>Vis ac commodo adipiscing arcu aliquet.</td>
+													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
+													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
+												</tr>
+												<tr>
+													<td>Eta</td>
+													<td>Morbi faucibus arcu accumsan lorem.</td>
+													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
+													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
+												</tr>
+												<tr>
+													<td>Theta</td>
+													<td>Vitae integer tempus condimentum.</td>
+													<td><input type="button" id="btn1" value="Word Analysis" name="WA" onclick="showPopup();"></td>
+													<td><input type="button" id="btn2" value="Similarity Analysis" name="SA" onclick="showPopup();"></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									
+							
+							
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="content">
+						<section>
+							<h3>2020학년도 1학기 오픈소스 프로그래밍 팀 프로젝트</h3>
+							<p>2019115900 박상헌<br />
+							2019113099 장유진</p>
+						</section>
+						
+						<section>
+							<h4>사이트 맵</h4>
+							<ul class="plain">
+								<li><a href="https://www.youtube.com/channel/UCboYjEZtDixhOlbmNyJQJDQ"><i class="icon fa-youtube">&nbsp;</i>컴퓨터학부 유튜브</a></li>
+								<li><a href="https://www.facebook.com/CSEatKNU/"><i class="icon fa-facebook">&nbsp;</i>컴퓨터학부 페이스북</a></li>
+								<li><a href="https://www.instagram.com/knu_cse_2020/"><i class="icon fa-instagram">&nbsp;</i>컴퓨터학부 인스타그램</a></li>
+								<li><a href="https://github.com/hun340312/OSP_Final"><i class="icon fa-github">&nbsp;</i>깃허브</a></li>
+							</ul>
+						</section>
+					</div>
+					<div class="copyright">
+						&copy; 이 사이트의 저작권은 경북대학교 컴퓨터학부에 있습니다.
+					</div>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{{ url_for ('static', filename = 'js/jquery.min.js') }}"></script>
+			<script src="{{ url_for ('static', filename = 'js/browser.min.js') }}"></script>
+			<script src="{{ url_for ('static', filename = 'js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for ('static', filename = 'js/util.js') }}"></script>
+			<script src="{{ url_for ('static', filename = 'js/main.js') }}"></script>
+
+	</body>
+</html>
