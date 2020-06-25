@@ -24,10 +24,8 @@ arr = []
 result = []
 wordList =[]
 TF = []
-wordCount = [0]*10
-processTime = [0]*10
-
-
+wordCount = []
+processTime = []
 
 
 def clean_str(text):
@@ -76,12 +74,16 @@ def compute_tf(s):
 	
 	
 def compute_idf():
+	count = 0	
 	Dval = len(sent_list)
 	bow = set()
 	for i in range(0,len(sent_list)):
 		tokenized = word_tokenize(clean_str(sent_list[i].lower()))
 		for tok in tokenized:
 			bow.add(tok)
+			count+=1
+	wordCount.append(count)
+
 	idf_d = {}
 	for t in bow:
 		cnt = 1
@@ -90,7 +92,6 @@ def compute_idf():
 				cnt += 1
 			idf_d[t]=math.log((float(len(bow)))/cnt)
 	return idf_d
-	
 	
 def main(url):
 
@@ -104,11 +105,11 @@ def main(url):
 	start = timeit.default_timer()
 	docs = para.split('\n')	
 	v = []
-
+	
 	sent_list.clear()
 	for line in docs:
 		process_new_sentence(line)
-		
+	
 	idf_d = compute_idf()
 		
 	for i in range(0,len(sent_list)):
@@ -147,8 +148,16 @@ def main(url):
 		pprint.pprint(res)
 	except KeyboardInterrupt:
 		pass"""
+def fileAnal(URLarr):
 	
-	
+	count = 0
+	for url in URLarr:
+		start = timeit.default_timer()	
+		main(url)
+		end = timeit.default_timer()
+		end -= start
+		processTime.append(end)
+		
 
 app = Flask(__name__)
 
@@ -172,8 +181,9 @@ def getFILE():
 def printFILE():	
 	URLs = request.form['URLs']
 	URLarr = URLs.split()
-	print(URLarr)	
-	return render_template('printFILE.html',)
+	fileAnal(URLarr)
+	
+	return render_template('printFILE.html',url1 = URLarr[0],count1 = wordCount[0], time1 = processTime[0],url2 = URLarr[1],count2 = wordCount[1], time2 = processTime[2],url3 = URLarr[2],count3 = wordCount[2], time3 = processTime[2],url4 = URLarr[3],count4 = wordCount[3], time4 = processTime[3],url5 = URLarr[4],count5 = wordCount[4], time5 = processTime[4],url6 = URLarr[5],count6 = wordCount[5], time6 = processTime[5],url7 = URLarr[6],count7 = wordCount[6], time7 = processTime[6],url8 = URLarr[7],count8 = wordCount[7], time8 = processTime[7],url9 = URLarr[8],count9 = wordCount[8], time9 = processTime[8],url10 = URLarr[9],count10 = wordCount[9], time10 = processTime[9])
 
 @app.route("/printURL/", methods = ['post'])
 def printURL():
@@ -191,9 +201,11 @@ def printURL():
 def wordAnal():
 	return render_template('wordAnal.html')
 
-@app.route("/pop1/")
+@app.route("/pop1/",methods = ['post'])
 def pop1():
-	return render_template('pop1.html')
+	url = request.form['URL']
+	main(url)
+	return render_template('pop1.html' ,word1 = wordList[0], value1 = TF[0], word2 = wordList[1], value2 = TF[1],word3 = wordList[2], value3 = TF[2],word4 = wordList[3], value4 = TF[3],word5 = wordList[4], value5 = TF[4],word6 = wordList[5], value6= TF[5],word7 = wordList[6], value7 = TF[6],word8 = wordList[7], value8 = TF[7],word9 = wordList[8], value9 = TF[8],word10 = wordList[9], value10 = TF[9])
 
 @app.route("/cosineAnal/")
 def cosineAnal():
