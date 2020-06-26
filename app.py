@@ -138,16 +138,17 @@ def main(url):
 	end = timeit.default_timer()
 	end -= start
 
-	"""try:
+	try:
 		es = Elasticsearch('127.0.0.1:9200')
 		
 		data = {"url" : url, "words" : wordList.copy(), "TF_IDF values" : TF.copy()}
 		res = es.index(index = 'web',doc_type = "word", body = data)
-		print(data)
+		pprint.pprint(data)
 		print("\n")
 		pprint.pprint(res)
 	except KeyboardInterrupt:
-		pass"""
+		pass
+
 def fileAnal(URLarr):
 	
 	count = 0
