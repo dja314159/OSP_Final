@@ -221,7 +221,6 @@ def cosineAnal(URLarr):
 			my_dic_sorted.sort(key=lambda x:x[1], reverse=True)	
 	
 		cosReturn.append(my_dic_sorted)
-	print(cosReturn)
 			
 		
 	"""for url in URLarr:
