@@ -8,6 +8,7 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link rel="stylesheet" href="{{ url_for ('static', filename = 'css/main.css') }}" />
+		
 <script type="text/javascript">
     
      function fileread()
@@ -17,12 +18,15 @@
         reader.readAsText(file, "utf-8");
 	var url = document.URL_FILE;
 
- 	reader.onload=function(){
+ 	reader.onload=function()
+	{
             var view=document.getElementById("content");
             view.textContent = reader.result;
 	    url.URLs.value = reader.result;
         };
-        reader.onerror = function(event){
+		
+        reader.onerror = function(event)
+	{
             switch(event.target.error.code){
                 case error.NOT_FOUND_ERR:
                     alert("읽을 파일을 찾지 못하였습니다..");break;
@@ -34,15 +38,10 @@
                     alert("읽기 권한이 없습니다."); break;
                 case error.ENCODING_ERR:
                     alert("파일 용량이 상한을 초과하였습니다."); break;
- 
             }
-       
         };
-	
-	
-
-	
      }
+	
   </script>	
 	</head>
 	<body class="is-preload">
@@ -110,7 +109,7 @@
 				<div class="inner">
 					<div class="content">
 						<section>
-							<h3>2020학년도 1학기 오픈소스 프로그래밍 팀 프로젝트</h3>
+							<h3>2020학년도 1학기 오픈소스 프로그래밍 팀프로젝트</h3>
 							<p>2019115900 박상헌<br />
 							2019113099 장유진</p>
 						</section>
